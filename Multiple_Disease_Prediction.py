@@ -9,6 +9,20 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import json
 import pandas as pd
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(_file_))
+
+PARKINSON_MODEL_DIR = os.path.join(
+    BASE_DIR,
+    "Models",
+    "ML-Project-14-Parkinsons_Disease_Prediction"
+)
+
+PARKINSON_PREPROCESS_DIR = os.path.join(
+    BASE_DIR,
+    "Preprocessing Files",
+    "ML-Project-14-Parkinsons_Disease_Prediction"
+)
 
 
 #loading the saved model of diabetes prediction
@@ -58,22 +72,31 @@ with open("Models/ML-Project-9-Heart_Disease_Prediction_Models/heart_disease_tra
 
 
 #loading the saved model of parkinson disease
-with open("Preprocessing Files/ML-Project-14-Parkinson's_Disease_Prediction_Pre_Processing_Files/columns.pkl", 'rb') as f:
+parkinson_model_path = os.path.join(
+    BASE_DIR,
+    "Models",
+    "ML-Project-14-Parkinson's_Disease_Prediction_Models",
+    "parkinsons_disease_trained_model.sav"
+)
+
+with open(os.path.join(PARKINSON_MODEL_DIR,
+         "parkinsons_disease_trained_knn_model.sav"), "rb") as f:
+    parkinson_knn_model = pickle.load(f)
+
+with open(os.path.join(PARKINSON_MODEL_DIR,
+         "parkinsons_disease_trained_rfc_model.sav"), "rb") as f:
+    parkinson_rfc_model = pickle.load(f)
+
+with open(os.path.join(PARKINSON_MODEL_DIR,
+         "parkinsons_disease_trained_xgb_model.sav"), "rb") as f:
+    parkinson_xgb_model = pickle.load(f)
+with open(os.path.join(PARKINSON_PREPROCESS_DIR,
+         "columns.pkl"), "rb") as f:
     all_features_parkinson_disease = pickle.load(f)
-with open("Preprocessing Files/ML-Project-14-Parkinson's_Disease_Prediction_Pre_Processing_Files/scaler.pkl", 'rb') as f:
-    scalers_parkinson_disease = pickle.load(f)
-with open("Best Features/ML-Project-14-Parkinson's_Disease_Prediction_Best_Features/best_features_knn.json", 'r') as file:
-    best_features_knn_parkinson_disease = json.load(file)
-with open("Best Features/ML-Project-14-Parkinson's_Disease_Prediction_Best_Features/best_features_xgb.json", 'r') as file:
-    best_features_xgb_parkinson_disease = json.load(file)
-with open("Best Features/ML-Project-14-Parkinson's_Disease_Prediction_Best_Features/best_features_rfc.json", 'r') as file:
-    best_features_rfc_parkinson_disease = json.load(file)
-with open("Models/ML-Project-14-Parkinson's_Disease_Prediction_Models/parkinsons_disease_trained_knn_model.sav", 'rb') as f:
-    loaded_model_knn_parkinson_disease = pickle.load(f)
-with open("Models/ML-Project-14-Parkinson's_Disease_Prediction_Models/parkinsons_disease_trained_xgb_model.sav", 'rb') as f:
-    loaded_model_xgb_parkinson_disease = pickle.load(f)
-with open("Models/ML-Project-14-Parkinson's_Disease_Prediction_Models/parkinsons_disease_trained_rfc_model.sav", 'rb') as f:
-    loaded_model_rfc_parkinson_disease = pickle.load(f)
+
+with open(os.path.join(PARKINSON_PREPROCESS_DIR,
+         "scaler.pkl"), "rb") as f:
+    parkinson_scaler = pickle.load(f)
 
 
 #loading the saved model of breast cancer
