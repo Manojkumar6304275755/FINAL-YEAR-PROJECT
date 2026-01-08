@@ -10,7 +10,7 @@ from streamlit_option_menu import option_menu
 import json
 import pandas as pd
 import os
-BASE_DIR = os.path.dirname(os.path.abspath(_file_))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 PARKINSON_MODEL_DIR = os.path.join(
     BASE_DIR,
@@ -79,9 +79,7 @@ parkinson_model_path = os.path.join(
     "parkinsons_disease_trained_model.sav"
 )
 
-with open(os.path.join(PARKINSON_MODEL_DIR,
-         "parkinsons_disease_trained_knn_model.sav"), "rb") as f:
-    parkinson_knn_model = pickle.load(f)
+
 
 with open(os.path.join(PARKINSON_MODEL_DIR,
          "parkinsons_disease_trained_rfc_model.sav"), "rb") as f:
