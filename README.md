@@ -106,9 +106,7 @@ The top 3 models for each disease prediction system are as follows:
 - Logistic Regression: Interpretable and performs well with binary classification.
 
 3. Parkinson Disease Prediction System
-- K-Nearest Neighbour: Simple algorithm that works well with small datasets.
 - XGBoost: Powerful gradient boosting framework.
-- Random Forest Classifier: Effective and reduces overfitting.
 
 4. Breast Cancer Prediction System
 - Logistic Regression: Highly interpretable and performs well with binary classification.
@@ -148,11 +146,11 @@ This Multiple Disease Prediction System WebApp provides an easy-to-use interface
 # Deployment
 The web app is hosted on Streamlit Cloud. You can access it using the following link:
 
-https://ml-project-20-multiple-disease-prediction-system-rzzsjoxpjyj32.streamlit.app/
+https://final-year-project-gqehjjh5ful6kpuqzcbdah.streamlit.app/
 
 # Contributing
 Contributions are welcome! If you have any suggestions or improvements, please create a pull request or open an issue.
 
 # Contact
-If you have any questions or suggestions, feel free to contact me at prachetpandav283@gmail.com
+If you have any questions or suggestions, feel free to contact me at bandarumanoj5051@gmail.com
 # Final-Year-projettt
