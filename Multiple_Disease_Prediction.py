@@ -15,13 +15,13 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PARKINSON_MODEL_DIR = os.path.join(
     BASE_DIR,
     "Models",
-    "ML-Project-14-Parkinsons_Disease_Prediction"
+    "ML-Project-14-Parkinson's_Disease_Prediction_Models"
 )
 
 PARKINSON_PREPROCESS_DIR = os.path.join(
     BASE_DIR,
     "Preprocessing Files",
-    "ML-Project-14-Parkinsons_Disease_Prediction"
+    "ML-Project-14-Parkinson's_Disease_Prediction_Pre_Processing_Files"
 )
 
 
@@ -81,9 +81,6 @@ parkinson_model_path = os.path.join(
 
 
 
-with open(os.path.join(PARKINSON_MODEL_DIR,
-         "parkinsons_disease_trained_rfc_model.sav"), "rb") as f:
-    parkinson_rfc_model = pickle.load(f)
 
 with open(os.path.join(PARKINSON_MODEL_DIR,
          "parkinsons_disease_trained_xgb_model.sav"), "rb") as f:
@@ -94,7 +91,7 @@ with open(os.path.join(PARKINSON_PREPROCESS_DIR,
 
 with open(os.path.join(PARKINSON_PREPROCESS_DIR,
          "scaler.pkl"), "rb") as f:
-    parkinson_scaler = pickle.load(f)
+    scalers_parkinson_disease = pickle.load(f)
 
 
 #loading the saved model of breast cancer
@@ -167,15 +164,12 @@ def parkinson_disease_prediction(input_data):
 
     df_parkinson_disease = pd.DataFrame([input_data], columns=all_features_parkinson_disease)
 
-    df_parkinson_disease[all_features_parkinson_disease] = scalers_parkinson_disease.transform(df_parkinson_disease[all_features_parkinson_disease])
+    df_parkinson_disease[all_features_parkinson_disease] = (scalers_parkinson_disease.transform(df_parkinson_disease[all_features_parkinson_disease]))
     
-    df_best_features_knn_parkinson_disease = df_parkinson_disease[best_features_knn_parkinson_disease]
-    df_best_features_xgb_parkinson_disease = df_parkinson_disease[best_features_xgb_parkinson_disease]
-    df_best_features_rfc_parkinson_disease = df_parkinson_disease[best_features_rfc_parkinson_disease]
+    prediction1_parkinson_disease = parkinson_model_path.predict(df_parkinson_disease)
     
-    prediction1_parkinson_disease = loaded_model_knn_parkinson_disease.predict(df_best_features_knn_parkinson_disease)
-    prediction2_parkinson_disease = loaded_model_xgb_parkinson_disease.predict(df_best_features_xgb_parkinson_disease)
-    prediction3_parkinson_disease = loaded_model_rfc_parkinson_disease.predict(df_best_features_rfc_parkinson_disease)
+    
+    prediction2_parkinson_disease = parkinson_xgb_model.predict(df_parkinson_disease)
     
     
     return prediction1_parkinson_disease , prediction2_parkinson_disease, prediction3_parkinson_disease
@@ -443,39 +437,17 @@ def main():
             PPE = st.number_input("PPE",format="%.6f")
 
         # code for prediction
-        parkinson_isease_diagnosis_knn = ''
         parkinson_isease_diagnosis_xgb = ''
-        parkinson_isease_diagnosis_rfc = ''
-        parkinson_isease_diagnosis_knn,parkinson_isease_diagnosis_xgb,parkinson_isease_diagnosis_rfc = parkinson_disease_prediction([Fo,Fhi,Flo,Jitter_per,Jitter_Abs,RAP,PPQ,Jitter_DDP,Shimmer,Shimmer_dB,Shimmer_APQ3,Shimmer_APQ5,APQ,Shimmer_DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE])
+
         
         #creating a button for Prediction
-        if st.button("Predict Parkinson Disease"):
-            if(parkinson_isease_diagnosis_knn[0]==0):
+        if st.button("Predict Parkinson Disease with XG Boost Classifier"):
+            if(parkinson_isease_diagnosis_xgb[0]==0):
                 prediction = 'The Person does not have Parkinson Disease' 
-            else:
+        else:
                 prediction = 'The Person have Parkinson Disease'
-            st.write(f"Prediction: {prediction}")
-        
-        if st.checkbox("Show Advanced Options"):
-            if st.button("Predict Breast Cancer with K Neighbors Classifier"):
-                if(parkinson_isease_diagnosis_knn[0]==0):
-                    prediction = 'The Person does not have Parkinson Disease' 
-                else:
-                    prediction = 'The Person have Parkinson Disease'
-                st.write(f"Prediction: {prediction}")
-            if st.button("Predict Breast Cancer with Random Forest Classifier"):
-                if(parkinson_isease_diagnosis_rfc[0]==0):
-                    prediction = 'The Person does not have Parkinson Disease' 
-                else:
-                    prediction = 'The Person have Parkinson Disease'
-                st.write(f"Prediction: {prediction}")
-            if st.button("Predict Breast Cancer with XG Boost Classifier"):
-                if(parkinson_isease_diagnosis_xgb[0]==0):
-                    prediction = 'The Person does not have Parkinson Disease' 
-                else:
-                    prediction = 'The Person have Parkinson Disease'
-                st.write(f"Prediction: {prediction}")
-        
+        st.write(f"Prediction: {prediction}")
+    
     
     # Breast Cancer Prediction Page
     if( selected == 'Breast Cancer Prediction'):
