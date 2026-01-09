@@ -130,9 +130,7 @@ Model	Accuracy
 
 3. Parkinson Disease Prediction System
 Model	Accuracy
-- K-Nearest Neighbour	100%
 - XGBoost	92.307%
-- Random Forest Classifier	94.871%
 
 4. Breast Cancer Prediction System
 Model	Accuracy
