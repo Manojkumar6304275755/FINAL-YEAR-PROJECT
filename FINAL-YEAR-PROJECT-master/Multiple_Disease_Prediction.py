@@ -45,17 +45,17 @@ with open("models/ML-Project-2-Diabetes_Prediction_models/diabetes_disease_train
 
 
 #loading the saved model of heart disease prediction
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/columns.pkl", 'rb') as f:
+with open("preprocessing_files/heart_disease/columns.pkl", 'rb') as f:
     all_columns_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/cat_columns.pkl", 'rb') as f:
+with open("preprocessing_files/heart_disease/cat_columns.pkl", 'rb') as f:
     cat_columns_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/encoder.pkl", 'rb') as f:
+with open("preprocessing_files/heart_disease/encoder.pkl", 'rb') as f:
     encoder_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/encoded_columns.pkl", 'rb') as f:
+with open("preprocessing_files/heart_disease/encoded_columns.pkl", 'rb') as f:
     encoded_columns_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/training_columns.pkl", 'rb') as f:
+with open("preprocessing_files/heart_disease/training_columns.pkl", 'rb') as f:
     training_columns_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/scaler.pkl", 'rb') as f:
+with open("preprocessing_files/heart_disease/scaler.pkl", 'rb') as f:
     scaler_heart_disease = pickle.load(f)
 with open("Best Features/ML-Project-9-Heart_Disease_Prediction_Best_Features/best_features_xgb.json", 'r') as file:
     best_features_xgb_heart_disease = json.load(file)
