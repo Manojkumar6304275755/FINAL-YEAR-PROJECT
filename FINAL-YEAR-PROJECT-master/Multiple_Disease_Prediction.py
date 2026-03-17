@@ -26,9 +26,9 @@ PARKINSON_PREPROCESS_DIR = os.path.join(
 
 
 #loading the saved model of diabetes prediction
-with open("preprocessing_files/ML-Project-2-Diabetes_Prediction_Pre_Processing_Files/columns.pkl", 'rb') as f:
+with open("preprocessing_files/diabetes/columns.pkl", 'rb') as f:
     all_features_diabetes_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-2-Diabetes_Prediction_Pre_Processing_Files/scaler.pkl", 'rb') as f:
+with open("preprocessing_files/diabetes/scaler.pkl", 'rb') as f:
     scalers_diabetes_disease = pickle.load(f)
 with open("Best Features/ML-Project-2-Diabetes_Prediction_Best_Features/best_features_svc.json", 'r') as file:
     best_features_svc_diabetes_disease = json.load(file)
