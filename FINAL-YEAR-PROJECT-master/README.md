@@ -19,7 +19,7 @@ Table of Contents:
 * Dataset Description
 * Technologies Used
 * Model Development Process
-* models Used
+* Models Used
 * Model Evaluation
 * Conclusion
 * Deployment
@@ -92,7 +92,7 @@ Each disease prediction system was developed through the following steps:
    * Evaluated the model using classification reports
 
 
-# models Used
+# Models Used
 The top 3 models for each disease prediction system are as follows:
 
 1. Diabetes Prediction System
