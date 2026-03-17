@@ -14,77 +14,73 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 PARKINSON_MODEL_DIR = os.path.join(
     BASE_DIR,
-    "Models",
+    "models",
     "ML-Project-14-Parkinson's_Disease_Prediction_Models"
 )
 
 PARKINSON_PREPROCESS_DIR = os.path.join(
     BASE_DIR,
-    "preprocessing_files",
-    "ML-Project-14-Parkinson's_Disease_Prediction_Pre_Processing_Files"
+    "Preprocessing_files",
+    "Parkinson's_Disease"
 )
 
 
 #loading the saved model of diabetes prediction
-with open("preprocessing_files/diabetes/columns.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "diabetes", "columns.pkl"), 'rb') as f:
     all_features_diabetes_disease = pickle.load(f)
-with open("preprocessing_files/diabetes/scaler.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "diabetes", "scaler.pkl"), 'rb') as f:
     scalers_diabetes_disease = pickle.load(f)
-with open("Best Features/ML-Project-2-Diabetes_Prediction_Best_Features/best_features_svc.json", 'r') as file:
+with open(os.path.join(BASE_DIR, "Best Features", "ML-Project-2-Diabetes_Prediction_Best_Features", "best_features_svc.json"), 'r') as file:
     best_features_svc_diabetes_disease = json.load(file)
-with open("Best Features/ML-Project-2-Diabetes_Prediction_Best_Features/best_features_lr.json", 'r') as file:
+with open(os.path.join(BASE_DIR, "Best Features", "ML-Project-2-Diabetes_Prediction_Best_Features", "best_features_lr.json"), 'r') as file:
     best_features_lr_diabetes_disease = json.load(file)
-with open("Best Features/ML-Project-2-Diabetes_Prediction_Best_Features/best_features_rfc.json", 'r') as file:
+with open(os.path.join(BASE_DIR, "Best Features", "ML-Project-2-Diabetes_Prediction_Best_Features", "best_features_rfc.json"), 'r') as file:
     best_features_rfc_diabetes_disease = json.load(file)
-with open("Models/ML-Project-2-Diabetes_Prediction_Models/diabetes_disease_trained_svc_model.sav", 'rb') as f:
+with open(os.path.join(BASE_DIR, "models", "ML-Project-2-Diabetes_Prediction_Models", "diabetes_disease_trained_svc_model.sav"), 'rb') as f:
     loaded_model_svc_diabetes_disease = pickle.load(f)
-with open("Models/ML-Project-2-Diabetes_Prediction_Models/diabetes_disease_trained_lr_model.sav", 'rb') as f:
+with open(os.path.join(BASE_DIR, "models", "ML-Project-2-Diabetes_Prediction_Models", "diabetes_disease_trained_lr_model.sav"), 'rb') as f:
     loaded_model_lr_diabetes_disease = pickle.load(f)
-with open("Models/ML-Project-2-Diabetes_Prediction_Models/diabetes_disease_trained_rfc_model.sav", 'rb') as f:
+with open(os.path.join(BASE_DIR, "models", "ML-Project-2-Diabetes_Prediction_Models", "diabetes_disease_trained_rfc_model.sav"), 'rb') as f:
     loaded_model_rfc_diabetes_disease = pickle.load(f)
 
 
 #loading the saved model of heart disease prediction
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/columns.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "heart_disease", "columns.pkl"), 'rb') as f:
     all_columns_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/cat_columns.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "heart_disease", "cat_columns.pkl"), 'rb') as f:
     cat_columns_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/encoder.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "heart_disease", "encoder.pkl"), 'rb') as f:
     encoder_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/encoded_columns.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "heart_disease", "encoded_columns.pkl"), 'rb') as f:
     encoded_columns_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/training_columns.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "heart_disease", "training_columns.pkl"), 'rb') as f:
     training_columns_heart_disease = pickle.load(f)
-with open("preprocessing_files/ML-Project-9-Heart_Disease_Prediction_Pre_Processing_Files/scaler.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "heart_disease", "scaler.pkl"), 'rb') as f:
     scaler_heart_disease = pickle.load(f)
-with open("Best Features/ML-Project-9-Heart_Disease_Prediction_Best_Features/best_features_xgb.json", 'r') as file:
+with open(os.path.join(BASE_DIR, "Best Features", "ML-Project-9-Heart_Disease_Prediction_Best_Features", "best_features_xgb.json"), 'r') as file:
     best_features_xgb_heart_disease = json.load(file)
-with open("Best Features/ML-Project-9-Heart_Disease_Prediction_Best_Features/best_features_rfc.json", 'r') as file:
+with open(os.path.join(BASE_DIR, "Best Features", "ML-Project-9-Heart_Disease_Prediction_Best_Features", "best_features_rfc.json"), 'r') as file:
     best_features_rfc_heart_disease = json.load(file)
-with open("Best Features/ML-Project-9-Heart_Disease_Prediction_Best_Features/best_features_lr.json", 'r') as file:
+with open(os.path.join(BASE_DIR, "Best Features", "ML-Project-9-Heart_Disease_Prediction_Best_Features", "best_features_lr.json"), 'r') as file:
     best_features_lr_heart_disease = json.load(file)
-with open("Models/ML-Project-9-Heart_Disease_Prediction_Models/heart_disease_trained_xgb_model.sav", 'rb') as f:
+with open(os.path.join(BASE_DIR, "models", "ML-Project-9-Heart_Disease_Prediction_Models", "heart_disease_trained_xgb_model.sav"), 'rb') as f:
     loaded_model_xgb_heart_disease = pickle.load(f)
-with open("Models/ML-Project-9-Heart_Disease_Prediction_Models/heart_disease_trained_rfc_model.sav", 'rb') as f:
+with open(os.path.join(BASE_DIR, "models", "ML-Project-9-Heart_Disease_Prediction_Models", "heart_disease_trained_rfc_model.sav"), 'rb') as f:
     loaded_model_rfc_heart_disease = pickle.load(f)
-with open("Models/ML-Project-9-Heart_Disease_Prediction_Models/heart_disease_trained_lr_model.sav", 'rb') as f:
+with open(os.path.join(BASE_DIR, "models", "ML-Project-9-Heart_Disease_Prediction_Models", "heart_disease_trained_lr_model.sav"), 'rb') as f:
     loaded_model_lr_heart_disease = pickle.load(f)
 
 
 #loading the saved model of parkinson disease
-parkinson_model_path = os.path.join(
-    BASE_DIR,
-    "Models",
-    "ML-Project-14-Parkinson's_Disease_Prediction_Models",
-    "parkinsons_disease_trained_model.sav"
-)
 
 
-
-
-with open(os.path.join(PARKINSON_MODEL_DIR,
-         "parkinsons_disease_trained_xgb_model.sav"), "rb") as f:
+with open(os.path.join(PARKINSON_MODEL_DIR, "parkinsons_disease_trained_knn_model.sav"), "rb") as f:
+    parkinson_knn_model = pickle.load(f)
+with open(os.path.join(PARKINSON_MODEL_DIR, "parkinsons_disease_trained_rfc_model.sav"), "rb") as f:
+    parkinson_rfc_model = pickle.load(f)
+with open(os.path.join(PARKINSON_MODEL_DIR, "parkinsons_disease_trained_xgb_model.sav"), "rb") as f:
     parkinson_xgb_model = pickle.load(f)
+
 with open(os.path.join(PARKINSON_PREPROCESS_DIR,
          "columns.pkl"), "rb") as f:
     all_features_parkinson_disease = pickle.load(f)
@@ -95,21 +91,21 @@ with open(os.path.join(PARKINSON_PREPROCESS_DIR,
 
 
 #loading the saved model of breast cancer
-with open("preprocessing_files/Breast_Cancer/columns.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "Breast_Cancer", "columns.pkl"), 'rb') as f:
     all_features_breast_cancer = pickle.load(f)
-with open("preprocessing_files/Breast_Cancer/scaler.pkl", 'rb') as f:
+with open(os.path.join(BASE_DIR, "Preprocessing_files", "Breast_Cancer", "scaler.pkl"), 'rb') as f:
     scalers_breast_cancer = pickle.load(f)
-with open("Best Features/ML-Project-19-Breast_Cancer_Classification_Best_Features/best_features_lr.json", 'r') as file:
+with open(os.path.join(BASE_DIR, "Best Features", "ML-Project-19-Breast_Cancer_Classification_Best_Features", "best_features_lr.json"), 'r') as file:
     best_features_lr_breast_cancer = json.load(file)
-with open("Best Features/ML-Project-19-Breast_Cancer_Classification_Best_Features/best_features_xgb.json", 'r') as file:
+with open(os.path.join(BASE_DIR, "Best Features", "ML-Project-19-Breast_Cancer_Classification_Best_Features", "best_features_xgb.json"), 'r') as file:
     best_features_xgb_breast_cancer = json.load(file)
-with open("Best Features/ML-Project-19-Breast_Cancer_Classification_Best_Features/best_features_knn.json", 'r') as file:
+with open(os.path.join(BASE_DIR, "Best Features", "ML-Project-19-Breast_Cancer_Classification_Best_Features", "best_features_knn.json"), 'r') as file:
     best_features_knn_breast_cancer = json.load(file)
-with open("Models/ML-Project-19-Breast_Cancer_Classification_Models/parkinsons_disease_trained_lr_model.sav", 'rb') as f:
+with open(os.path.join(BASE_DIR, "models", "ML-Project-19-Breast_Cancer_Classification_Models", "parkinsons_disease_trained_lr_model.sav"), 'rb') as f:
     loaded_model_lr_breast_cancer = pickle.load(f)
-with open("Models/ML-Project-19-Breast_Cancer_Classification_Models/parkinsons_disease_trained_xgb_model.sav", 'rb') as f:
+with open(os.path.join(BASE_DIR, "models", "ML-Project-19-Breast_Cancer_Classification_Models", "parkinsons_disease_trained_xgb_model.sav"), 'rb') as f:
     loaded_model_xgb_breast_cancer = pickle.load(f)
-with open("Models/ML-Project-19-Breast_Cancer_Classification_Models/parkinsons_disease_trained_knn_model.sav", 'rb') as f:
+with open(os.path.join(BASE_DIR, "models", "ML-Project-19-Breast_Cancer_Classification_Models", "parkinsons_disease_trained_knn_model.sav"), 'rb') as f:
     loaded_model_knn_breast_cancer = pickle.load(f)
 
 
@@ -164,15 +160,13 @@ def parkinson_disease_prediction(input_data):
 
     df_parkinson_disease = pd.DataFrame([input_data], columns=all_features_parkinson_disease)
 
-    df_parkinson_disease[all_features_parkinson_disease] = (scalers_parkinson_disease.transform(df_parkinson_disease[all_features_parkinson_disease]))
+    df_parkinson_disease[all_features_parkinson_disease] = scalers_parkinson_disease.transform(df_parkinson_disease[all_features_parkinson_disease])
     
-    prediction1_parkinson_disease = parkinson_model_path.predict(df_parkinson_disease)
+    prediction1_parkinson_disease = parkinson_knn_model.predict(df_parkinson_disease)
+    prediction2_parkinson_disease = parkinson_rfc_model.predict(df_parkinson_disease)
+    prediction3_parkinson_disease = parkinson_xgb_model.predict(df_parkinson_disease)
     
-    
-    prediction2_parkinson_disease = parkinson_xgb_model.predict(df_parkinson_disease)
-    
-    
-    return prediction1_parkinson_disease , prediction2_parkinson_disease, prediction3_parkinson_disease
+    return prediction1_parkinson_disease, prediction2_parkinson_disease, prediction3_parkinson_disease
 
 
 def breast_cancer_prediction(input_data):
